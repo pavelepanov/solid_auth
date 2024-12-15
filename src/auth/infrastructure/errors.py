@@ -1,0 +1,6 @@
+class InfrastructureError(Exception):
+    ...
+
+
+class DataMapperError(InfrastructureError):
+    ...

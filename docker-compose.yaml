@@ -1,0 +1,19 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:13.0-alpine
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+      - custom
+    ports:
+      - "2344:${DB_PORT}"
+
+
+networks:
+  custom:
+    driver: bridge

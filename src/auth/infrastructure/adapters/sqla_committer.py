@@ -17,5 +17,3 @@ class SqlaCommitter(Committer):
             raise DataMapperError("Connection failed, commit failed.") from error
         except SQLAlchemyError as error:
             raise DataMapperError("Database query failed, commit failed.") from error
-
-

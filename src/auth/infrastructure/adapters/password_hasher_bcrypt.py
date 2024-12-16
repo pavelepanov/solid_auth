@@ -32,4 +32,3 @@ class BcryptPasswordHasher(PasswordHasher):
     def verify(self, *, raw_password: RawPassword, hashed_password: bytes) -> bool:
         base64_hmac_password: bytes = self._add_pepper(raw_password, self._pepper)
         return bcrypt.checkpw(base64_hmac_password, hashed_password)
-    

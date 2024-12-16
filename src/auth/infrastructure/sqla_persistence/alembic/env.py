@@ -6,10 +6,8 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from auth.setup.config import DatabaseConfig
 from auth.infrastructure.sqla_persistence.tables.base import BaseDb
-from auth.infrastructure.sqla_persistence.tables.user import UserTable
-from auth.infrastructure.sqla_persistence.tables.session import SessionTable
+from auth.setup.config import DatabaseConfig
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

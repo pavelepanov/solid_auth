@@ -1,4 +1,6 @@
-from auth.application.ports.access_token_request_handler import AccessTokenRequestHandler
+from auth.application.ports.access_token_request_handler import (
+    AccessTokenRequestHandler,
+)
 from auth.application.session.access_token_processor_jwt import JwtAccessTokenProcessor
 
 
@@ -23,11 +25,9 @@ class JwtTokenService:
 
         self._access_token_request_handler.add_access_token_to_request(access_token)
 
-
     def delete_access_token_from_request(self) -> None:
 
         self._access_token_request_handler.delete_access_token_from_request()
-
 
     def get_access_token_from_request(self) -> str | None:
 

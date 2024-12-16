@@ -2,8 +2,8 @@ from typing import Any, cast
 
 import jwt
 
-from auth.application.session.types import JwtAlgorithm, JwtSecret
 from auth.application.session.timer_utc import UtcSessionTimer
+from auth.application.session.types import JwtAlgorithm, JwtSecret
 
 
 class JwtAccessTokenProcessor:
@@ -53,5 +53,5 @@ class JwtAccessTokenProcessor:
                 ),
             )
 
-        except jwt.PyJWTError as error:
+        except jwt.PyJWTError:
             return None

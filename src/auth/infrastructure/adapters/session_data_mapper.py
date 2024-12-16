@@ -4,8 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql.dml import ReturningDelete
 from sqlalchemy.sql.operators import eq
 
-from auth.domain.user.value_objects import UserId
 from auth.domain.session.entity import Session
+from auth.domain.user.value_objects import UserId
 from auth.infrastructure.errors import DataMapperError
 
 
@@ -23,9 +23,7 @@ class SqlaSessionDataMapper:
         except SQLAlchemyError as error:
             raise DataMapperError("Database query failed.") from error
 
-    async def read(
-        self, session_id: str, for_update: bool = False
-    ) -> Session | None:
+    async def read(self, session_id: str, for_update: bool = False) -> Session | None:
         try:
             session: Session | None = await self._session.get(
                 Session,

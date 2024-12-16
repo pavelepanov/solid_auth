@@ -23,4 +23,3 @@ class UtcSessionTimer:
     @property
     def refresh_trigger_interval(self) -> timedelta:
         return self._session_ttl_min * self._session_refresh_threshold
-    

@@ -78,10 +78,14 @@ class SqlaUserDataMapper(UserDataGateway):
             raise DataMapperError("Database query failed.") from error
 
     async def read_all(self, limit: int, offset: int) -> list[UserTable]:
-        select_stmt: Select[tuple[UserTable]] = select(UserTable).limit(limit).offset(offset)
+        select_stmt: Select[tuple[UserTable]] = (
+            select(UserTable).limit(limit).offset(offset)
+        )
 
         try:
-            users: list[UserTable] = list((await self._session.scalars(select_stmt)).all())
+            users: list[UserTable] = list(
+                (await self._session.scalars(select_stmt)).all()
+            )
 
             return users
 
@@ -89,4 +93,3 @@ class SqlaUserDataMapper(UserDataGateway):
             raise DataMapperError("Connection failed.") from error
         except SQLAlchemyError as error:
             raise DataMapperError("Database query failed.") from error
-        
